@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setListener(binding)
         /**
          * Kotlin中的协程不同于广义的协程，Kotlin最后会运行在JVM环境中，代码由kt -> dex的转变
          * 本质是一个解决并发任务的方案，同时也是这个方案的一个组件
@@ -86,6 +87,15 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+    }
+
+    private fun setListener(binding: ActivityMainBinding) {
+        binding.btnPractice1.setOnClickListener {
+            PracticeActivity.start(this)
+        }
+        binding.btnPractice2.setOnClickListener {
+            TestActivity.start(this)
+        }
     }
 
     /**
