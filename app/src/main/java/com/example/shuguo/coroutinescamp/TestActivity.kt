@@ -10,6 +10,11 @@ import androidx.lifecycle.lifecycleScope
 import com.example.shuguo.coroutinescamp.databinding.ActivityTestBinding
 import kotlinx.coroutines.*
 
+/**
+ * @Time : 2021-12-23
+ * @Author : lsg
+ * @Description : 练习示例二
+ **/
 class TestActivity : AppCompatActivity(),CoroutineScope by MainScope() {
   private val TAG = "TestActivity"
   private lateinit var binding: ActivityTestBinding
@@ -29,9 +34,9 @@ class TestActivity : AppCompatActivity(),CoroutineScope by MainScope() {
     launch {
       var data = getData()
       var processData = processData(data)
+      Log.e(TAG,"setText ${Thread.currentThread().name}")
       // 练习内容：用协程让上面 ↑ 这两行放在后台执行，然后把代码截图贴到腾讯课堂的作业里
       binding.textView.text = processData
-      Log.e(TAG,"setText ${Thread.currentThread().name}")
     }
 
   }
