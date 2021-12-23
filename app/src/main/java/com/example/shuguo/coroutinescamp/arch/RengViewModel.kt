@@ -22,7 +22,7 @@ class RengViewModel : ViewModel(){
 
     private suspend fun loadUsers(): List<Repo>{
         val retrofit = Retrofit.Builder()
-                .baseUrl("https://apu.github.com/")
+                .baseUrl("https://api.github.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .build()
